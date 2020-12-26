@@ -1703,5 +1703,8 @@
     <ClInclude Include="thirdParty\include\asio.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="testEchoServerClass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
