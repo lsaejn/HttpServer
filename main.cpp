@@ -8,7 +8,7 @@
 
 #include "server.hpp"
 
-int testCaseNumber = 0;
+int testCaseNumber = 1;
 
 int main(int argc, char* argv[])
 {
