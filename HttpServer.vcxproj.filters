@@ -21,6 +21,27 @@
     <ClCompile Include="thirdParty\include\asio\impl\src.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="mime_types.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="reply.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="request_handler.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="request_parser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="server.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="connection_manager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="connection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="thirdParty\include\asio\detail\impl\buffer_sequence_adapter.ipp">
@@ -1704,6 +1725,33 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="testEchoServerClass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mime_types.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="reply.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="request.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="request_handler.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="request_parser.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="server.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="header.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="connection_manager.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="connection.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,6 +6,8 @@
 #include <utility>
 #include "testEchoServerClass.h"
 
+#include "server.hpp"
+
 int testCaseNumber = 0;
 
 int main(int argc, char* argv[])
@@ -25,7 +27,15 @@ int main(int argc, char* argv[])
     }
     else if (testCaseNumber == 1)
     {
-
+        try
+        {
+            http::server::server s("127.0.0.1", "9909", "./");
+            s.run();
+        }
+        catch (std::exception& e)
+        {
+            std::cerr << "exception: " << e.what() << "\n";
+        }
     }
 
 

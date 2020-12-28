@@ -140,10 +140,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="connection.cpp" />
+    <ClCompile Include="connection_manager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mime_types.cpp" />
+    <ClCompile Include="reply.cpp" />
+    <ClCompile Include="request_handler.cpp" />
+    <ClCompile Include="request_parser.cpp" />
+    <ClCompile Include="server.cpp" />
     <ClCompile Include="thirdParty\include\asio\impl\src.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="connection.hpp" />
+    <ClInclude Include="connection_manager.hpp" />
+    <ClInclude Include="header.hpp" />
+    <ClInclude Include="mime_types.hpp" />
+    <ClInclude Include="reply.hpp" />
+    <ClInclude Include="request.hpp" />
+    <ClInclude Include="request_handler.hpp" />
+    <ClInclude Include="request_parser.hpp" />
+    <ClInclude Include="server.hpp" />
     <ClInclude Include="testEchoServerClass.h" />
     <ClInclude Include="thirdParty\include\asio.hpp" />
     <ClInclude Include="thirdParty\include\asio\any_io_executor.hpp" />
