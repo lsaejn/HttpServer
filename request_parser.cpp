@@ -184,7 +184,7 @@ request_parser::result_type request_parser::consume(request& req, char input)
       return bad;
     }
   case header_line_start:
-    if (input == '\r')
+    if (input == '\r')//no headers
     {
       state_ = expecting_newline_3;
       return indeterminate;
@@ -198,7 +198,7 @@ request_parser::result_type request_parser::consume(request& req, char input)
     {
       return bad;
     }
-    else
+    else//a char, we touch a header, and insert this char to the header string
     {
       req.headers.push_back(header());
       req.headers.back().name.push_back(input);

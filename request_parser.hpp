@@ -18,6 +18,13 @@ namespace server {
 
 struct request;
 
+/*
+a request has a format as bellow(easy to parse but lots of website don not comply with this standard):
+method url version
+headers
+
+body
+*/
 /// Parser for incoming requests.
 class request_parser
 {
@@ -70,12 +77,12 @@ private:
     method_start,
     method,
     uri,
-    http_version_h,
+    http_version_h,//means char 'h'
     http_version_t_1,
     http_version_t_2,
     http_version_p,
     http_version_slash,
-    http_version_major_start,
+    http_version_major_start,//http可能是两位数...
     http_version_major,
     http_version_minor_start,
     http_version_minor,
