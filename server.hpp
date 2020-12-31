@@ -34,6 +34,7 @@ public:
 
   /// Run the server's io_context loop.
   void run();
+  void stop();
 
 private:
   /// Perform an asynchronous accept operation.

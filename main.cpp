@@ -10,6 +10,9 @@
 
 int testCaseNumber = 1;
 
+/*
+request_handler 处理数据，状态写到request里
+*/
 int main(int argc, char* argv[])
 {
     if(testCaseNumber ==0)
@@ -29,6 +32,7 @@ int main(int argc, char* argv[])
     {
         try
         {
+            //asio::io_context io_context_;
             http::server::server s("127.0.0.1", "9909", "./");
             s.run();
         }

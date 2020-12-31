@@ -55,6 +55,12 @@ void server::run()
   io_context_.run();
 }
 
+void server::stop()
+{
+    acceptor_.close();
+    connection_manager_.stop_all();
+}
+
 void server::do_accept()
 {
   acceptor_.async_accept(
