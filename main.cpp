@@ -2,6 +2,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <fstream>
 #include <memory>
 #include <utility>
 #include "testEchoServerClass.h"
@@ -15,6 +16,7 @@ request_handler 处理数据，状态写到request里
 */
 int main(int argc, char* argv[])
 {
+    std::fstream f;
     if(testCaseNumber ==0)
     {
         try

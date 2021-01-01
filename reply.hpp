@@ -15,6 +15,7 @@
 #include <vector>
 #include <asio.hpp>
 #include "header.hpp"
+#include <fstream>
 
 namespace http {
 namespace server {
@@ -48,11 +49,12 @@ struct reply
 
   /// The content to be sent in the reply.
   std::string content;
-
+  std::ifstream ifs;
   /// Convert the reply into a vector of buffers. The buffers do not own the
   /// underlying memory blocks, therefore the reply object must remain valid and
   /// not be changed until the write operation has completed.
-  std::vector<asio::const_buffer> to_buffers();
+  std::vector<asio::const_buffer> header_to_buffers();
+  std::string file_to_string();
 
   /// Get a stock reply.
   static reply stock_reply(status_type status);

@@ -59,8 +59,10 @@ void request_handler::handle_request(const request& req, reply& rep)
 
   // Open the file to send back.
   std::string full_path = doc_root_ + request_path;
-  std::ifstream is(full_path.c_str(), std::ios::in | std::ios::binary);
-  if (!is)
+  //rep.
+  rep.ifs.open(full_path.c_str(), std::ios::in | std::ios::binary);
+  //std::ifstream ifs(full_path.c_str(), std::ios::in | std::ios::binary);
+  if (!rep.ifs)
   {
     rep = reply::stock_reply(reply::not_found);
     return;
@@ -68,12 +70,17 @@ void request_handler::handle_request(const request& req, reply& rep)
 
   // Fill out the reply to be sent to the client.
   rep.status = reply::ok;
-  char buf[512];
-  while (is.read(buf, sizeof(buf)).gcount() > 0)
-    rep.content.append(buf, is.gcount());
+  //char buf[512];
+  //while (rep.ifs.read(buf, sizeof(buf)).gcount() > 0)
+  //  rep.content.append(buf, rep.ifs.gcount());
+
+  rep.ifs.seekg(0, std::ios_base::end);
+  int len = rep.ifs.tellg();
+  rep.ifs.seekg(0, std::ios_base::beg);
+
   rep.headers.resize(2);
   rep.headers[0].name = "Content-Length";
-  rep.headers[0].value = std::to_string(rep.content.size());
+  rep.headers[0].value = std::to_string(len);
   rep.headers[1].name = "Content-Type";
   rep.headers[1].value = mime_types::extension_to_type(extension);
 }

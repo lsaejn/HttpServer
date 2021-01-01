@@ -99,7 +99,7 @@ const char crlf[] = { '\r', '\n' };
 
 } // namespace misc_strings
 
-std::vector<asio::const_buffer> reply::to_buffers()
+std::vector<asio::const_buffer> reply::header_to_buffers()
 {
   std::vector<asio::const_buffer> buffers;
   buffers.push_back(status_strings::to_buffer(status));
@@ -112,9 +112,26 @@ std::vector<asio::const_buffer> reply::to_buffers()
     buffers.push_back(asio::buffer(misc_strings::crlf));
   }
   buffers.push_back(asio::buffer(misc_strings::crlf));
-  buffers.push_back(asio::buffer(content));
+  //file_to_string();
+  //buffers.push_back(asio::buffer(content=file_to_string()));
   return buffers;
 }
+
+std::string reply::file_to_string()
+{
+    std::string re;
+    char buf[1024] = { 0 };
+    if (ifs.is_open() && ifs.read(buf, sizeof(buf)-1).gcount() > 0)
+    {
+        re = buf;
+        return re;
+    }
+    else {
+        ifs.close();
+    }
+    return {};
+}
+
 
 namespace stock_replies {
 

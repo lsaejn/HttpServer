@@ -48,6 +48,7 @@ private:
 
   /// Perform an asynchronous write operation.
   void do_write();
+  void do_write2();
 
   /// Socket for the connection.
   asio::ip::tcp::socket socket_;
