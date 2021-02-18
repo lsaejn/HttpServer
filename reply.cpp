@@ -117,15 +117,16 @@ std::vector<asio::const_buffer> reply::header_to_buffers()
 
 std::string reply::read_file_piece()
 {
-    std::string re;
+    std::string ret;
     char buf[1024] = { 0 };
     if (ifs.is_open())
     {
         int n = ifs.read(buf, sizeof(buf)).gcount();
         if (n > 0)
         {
-            re.append(buf,n);
-            return re;
+            ret.append(buf,n);
+            //std::string re_before = buf; //do not do this because of in binary date there are lots of '\0' in string
+            return ret;
         }
         else
         {
