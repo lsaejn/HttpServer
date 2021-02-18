@@ -73,7 +73,7 @@ void connection::do_write()
 {
   auto self(shared_from_this());
   auto buff = reply_.header_to_buffers();
-  reply_.content = reply_.file_to_string();
+  reply_.content = reply_.file_to_string();//for debug
   buff.push_back(asio::buffer(reply_.content));
   socket_.async_write_some(buff, [this, self](std::error_code ec, std::size_t len)
       {
@@ -95,24 +95,6 @@ void connection::do_write()
           do_write2();
 
       });
-  //asio::async_write(socket_, buff,
-  //    [this, self](std::error_code ec, std::size_t)
-  //    {
-  //      if (!ec)
-  //      {
-  //        // Initiate graceful connection closure.
-  //        asio::error_code ignored_ec;
-  //        socket_.shutdown(asio::ip::tcp::socket::shutdown_both,
-  //          ignored_ec);
-  //      }
-
-  //      if (ec != asio::error::operation_aborted)
-  //      {
-  //        connection_manager_.stop(shared_from_this());
-  //      }
-  //      //do_write2();
-
-  //    });
 }
 
 void connection::do_write2()

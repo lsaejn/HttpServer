@@ -121,13 +121,18 @@ std::string reply::file_to_string()
 {
     std::string re;
     char buf[1024] = { 0 };
-    if (ifs.is_open() && ifs.read(buf, sizeof(buf)-1).gcount() > 0)
+    if (ifs.is_open())
     {
-        re = buf;
-        return re;
-    }
-    else {
-        ifs.close();
+        int n = ifs.read(buf, sizeof(buf)).gcount();
+        if (n > 0)
+        {
+            re.append(buf,n);
+            return re;
+        }
+        else
+        {
+            ifs.close();
+        }
     }
     return {};
 }

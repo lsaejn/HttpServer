@@ -48,6 +48,8 @@ private:
 
   /// Perform an asynchronous write operation.
   void do_write();
+
+  /// read file
   void do_write2();
 
   /// Socket for the connection.
@@ -60,7 +62,7 @@ private:
   request_handler& request_handler_;
 
   /// Buffer for incoming data.
-  std::array<char, 52> buffer_;
+  std::array<char, 1024*8> buffer_;
 
   /// The incoming request.
   request request_;
