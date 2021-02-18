@@ -54,7 +54,7 @@ struct reply
   /// underlying memory blocks, therefore the reply object must remain valid and
   /// not be changed until the write operation has completed.
   std::vector<asio::const_buffer> header_to_buffers();
-  std::string file_to_string();
+  std::string read_file_piece();
 
   /// Get a stock reply.
   static reply stock_reply(status_type status);

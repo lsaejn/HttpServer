@@ -112,12 +112,10 @@ std::vector<asio::const_buffer> reply::header_to_buffers()
     buffers.push_back(asio::buffer(misc_strings::crlf));
   }
   buffers.push_back(asio::buffer(misc_strings::crlf));
-  //file_to_string();
-  //buffers.push_back(asio::buffer(content=file_to_string()));
   return buffers;
 }
 
-std::string reply::file_to_string()
+std::string reply::read_file_piece()
 {
     std::string re;
     char buf[1024] = { 0 };

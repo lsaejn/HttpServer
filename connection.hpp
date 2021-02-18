@@ -50,7 +50,7 @@ private:
   void do_write();
 
   /// read file
-  void do_write2();
+  void do_write_some();
 
   /// Socket for the connection.
   asio::ip::tcp::socket socket_;
